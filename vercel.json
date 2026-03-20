@@ -3,10 +3,26 @@
   "outputDirectory": "frontend/dist",
   "installCommand": "cd frontend && npm install",
   "framework": null,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/favicon.png",
+      "dest": "/favicon.png"
+    },
+    {
+      "src": "/icons.svg",
+      "dest": "/icons.svg"
+    },
+    {
+      "src": "/flower-for-emotion/(.*)",
+      "dest": "/flower-for-emotion/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
