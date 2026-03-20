@@ -1,0 +1,188 @@
+/* ============================================
+   🌸 BLOOMMIND — App Layout Styles
+   ============================================ */
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Background Decoration ── */
+.app__bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app__bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.app__bg-circle--1 {
+  width: 600px;
+  height: 600px;
+  background: var(--color-pink);
+  top: -200px;
+  right: -200px;
+  animation: float 20s ease-in-out infinite;
+}
+
+.app__bg-circle--2 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-lavender);
+  bottom: -100px;
+  left: -100px;
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+.app__bg-circle--3 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-sage);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: float 18s ease-in-out infinite;
+}
+
+/* ── Main Content ── */
+.app__main {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Input Phase ── */
+.app__input-phase {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 32px;
+}
+
+/* ── Header ── */
+.app__header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.app__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.app__logo-icon {
+  font-size: 48px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.app__title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.app__tagline {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--color-gray);
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ── Error Message ── */
+.app__error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(175, 203, 255, 0.2);
+  border: 1px solid var(--color-blue);
+  border-radius: var(--radius);
+  color: var(--color-brown);
+  font-size: 14px;
+}
+
+/* ── Status Indicator ── */
+.app__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(168, 195, 160, 0.2);
+  border: 1px solid var(--color-sage);
+  border-radius: var(--radius);
+  color: var(--color-sage-dark);
+  font-size: 13px;
+}
+
+/* ── Footer ── */
+.app__footer {
+  margin-top: auto;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.app__footer p {
+  font-size: 13px;
+  color: var(--color-gray);
+  line-height: 1.8;
+}
+
+/* ── Bouquet Phase ── */
+.app__bouquet-phase {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .app__title {
+    font-size: 36px;
+  }
+
+  .app__logo-icon {
+    font-size: 36px;
+  }
+
+  .app__tagline {
+    font-size: 16px;
+  }
+
+  .app__input-phase {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app__title {
+    font-size: 28px;
+  }
+
+  .app__logo-icon {
+    font-size: 28px;
+  }
+
+  .app__tagline {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,204 @@
+/* ============================================
+   🌿 BLOOMMIND — DESIGN SYSTEM
+   Theme: Garden, nature, peaceful growth
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  /* Primary - Garden Greens */
+  --color-pink:       #6B8E5A;
+  --color-cream:      #F5F9F3;
+  --color-sage:       #7BA05B;
+
+  /* Secondary - Nature Tones */
+  --color-lavender:   #9DB88D;
+  --color-yellow:     #E8D44D;
+  --color-blue:       #87CEEB;
+
+  /* Text */
+  --color-brown:      #2D3A2D;
+  --color-gray:       #5A6B5A;
+
+  /* Accents */
+  --color-pink-dark:  #4A6B3A;
+  --color-sage-dark:  #5C7A4C;
+  --color-cream-dark: #E8F0E5;
+
+  /* UI */
+  --radius:           16px;
+  --radius-lg:        24px;
+  --radius-xl:        32px;
+  --shadow-soft:      0 4px 24px rgba(74, 63, 53, 0.08);
+  --shadow-medium:    0 8px 40px rgba(74, 63, 53, 0.12);
+  --shadow-glow:      0 0 32px rgba(168, 195, 160, 0.4);
+
+  /* Fonts */
+  --font-heading:     'Playfair Display', Georgia, serif;
+  --font-body:        'Poppins', 'Inter', sans-serif;
+
+  /* Transitions */
+  --transition:       all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:  all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-brown);
+  line-height: 1.2;
+}
+
+p {
+  color: var(--color-gray);
+  font-weight: 300;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-pink);
+  border-radius: 3px;
+}
+
+/* ── Keyframe Animations ── */
+
+/* Gentle float up-down */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
+  50%       { transform: translateY(-8px) rotate(var(--rot, 0deg)); }
+}
+
+/* Fade in from below */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Bloom scale in */
+@keyframes bloomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(var(--rot, 0deg));
+  }
+  70% {
+    transform: scale(1.08) rotate(var(--rot, 0deg));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(var(--rot, 0deg));
+  }
+}
+
+/* Sparkle pulse */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50%       { opacity: 1; transform: scale(1); }
+}
+
+/* Petal drift */
+@keyframes petalDrift {
+  0%   { transform: translateY(-10px) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.8; }
+  100% { transform: translateY(100vh) translateX(60px) rotate(360deg); opacity: 0; }
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: var(--shadow-soft); }
+  50%       { box-shadow: var(--shadow-glow); }
+}
+
+/* ── Utility Classes ── */
+.fade-in     { animation: fadeIn 0.6s ease forwards; }
+.fade-in-up  { animation: fadeInUp 0.7s ease forwards; }
+.bloom-in    { animation: bloomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+
+/* ── Animation Delays ── */
+.delay-100   { animation-delay: 0.1s; }
+.delay-200   { animation-delay: 0.2s; }
+.delay-300   { animation-delay: 0.3s; }
+.delay-400   { animation-delay: 0.4s; }
+.delay-500   { animation-delay: 0.5s; }
+
+/* ── Stagger Children Animation ── */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* ── Hover Effects ── */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(74, 63, 53, 0.15);
+}
+
+/* ── Glass Effect ── */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ── Gradient Text ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-pink-dark), var(--color-lavender));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

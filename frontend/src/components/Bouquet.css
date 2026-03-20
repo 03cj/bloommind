@@ -1,0 +1,242 @@
+/* ============================================
+   🌸 Bouquet Component Styles
+   ============================================ */
+
+.bouquet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem 2.5rem;
+  overflow: hidden;
+}
+
+/* ── Falling Petals Background ── */
+.bouquet__petals-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bouquet__petal {
+  position: absolute;
+  top: -30px;
+  font-size: 1rem;
+  opacity: 0.6;
+  animation: petalDrift linear infinite;
+  user-select: none;
+}
+
+/* ── Header ── */
+.bouquet__header {
+  text-align: center;
+  z-index: 1;
+}
+
+.bouquet__title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.02em;
+}
+
+.bouquet__subtitle {
+  font-size: 0.88rem;
+  color: var(--color-gray);
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* ── Emotion Tags ── */
+.bouquet__emotions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  z-index: 1;
+}
+
+.bouquet__emotion-tag {
+  background: linear-gradient(135deg, var(--color-sage), var(--color-lavender));
+  color: var(--color-brown);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(168, 195, 160, 0.4);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ── Flowers Container ── */
+.bouquet__flowers {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  min-height: 160px;
+  padding: 1rem 0.5rem 0;
+}
+
+/* Overlapping bouquet layout */
+.bouquet__flowers > * {
+  margin-left: -18px;
+}
+
+.bouquet__flowers > *:first-child {
+  margin-left: 0;
+}
+
+/* 1 flower — centered, larger */
+.bouquet__flowers--1 {
+  gap: 0;
+}
+.bouquet__flowers--1 > * {
+  margin-left: 0;
+}
+.bouquet__flowers--1 .flower__img-wrapper {
+  width: 140px;
+  height: 140px;
+}
+
+/* 2 flowers */
+.bouquet__flowers--2 > * {
+  margin-left: -24px;
+}
+.bouquet__flowers--2 > *:first-child {
+  margin-left: 0;
+}
+
+/* 3 flowers — classic bouquet */
+.bouquet__flowers--3 > * {
+  margin-left: -20px;
+}
+.bouquet__flowers--3 > *:first-child {
+  margin-left: 0;
+}
+/* Middle flower slightly higher */
+.bouquet__flowers--3 > *:nth-child(2) {
+  margin-bottom: 20px;
+}
+
+/* ── Message Card ── */
+.bouquet__message {
+  background: linear-gradient(135deg, rgba(168, 195, 160, 0.3), rgba(200, 198, 229, 0.2));
+  border: 1.5px solid var(--color-sage);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 2rem;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-soft);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.bouquet__message-inner {
+  position: relative;
+  padding: 0 1rem;
+}
+
+.bouquet__message-quote {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-sage-dark);
+  line-height: 0;
+  position: absolute;
+  top: 0.5rem;
+  left: -0.5rem;
+  opacity: 0.6;
+}
+
+.bouquet__message-quote--close {
+  top: auto;
+  bottom: -1rem;
+  left: auto;
+  right: -0.5rem;
+}
+
+.bouquet__message-text {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-brown);
+  line-height: 1.7;
+  padding: 0 0.5rem;
+}
+
+/* ── Disclaimer ── */
+.bouquet__disclaimer {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  text-align: center;
+  font-weight: 300;
+  max-width: 400px;
+  line-height: 1.5;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/* ── Actions ── */
+.bouquet__actions {
+  z-index: 1;
+}
+
+.bouquet__reset {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 2rem;
+  background: transparent;
+  border: 2px solid var(--color-sage);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-sage-dark);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.bouquet__reset:hover {
+  background: var(--color-sage);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 195, 160, 0.4);
+}
+
+.bouquet__reset:active {
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .bouquet__title {
+    font-size: 1.6rem;
+  }
+
+  .bouquet__message {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .bouquet__message-text {
+    font-size: 0.95rem;
+  }
+
+  .bouquet__flowers > * {
+    margin-left: -14px;
+  }
+
+  .bouquet__flowers .flower__img-wrapper {
+    width: 85px;
+    height: 85px;
+  }
+}
