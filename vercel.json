@@ -1,25 +1,5 @@
 {
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "dist",
-  "installCommand": "npm install",
-  "framework": null,
   "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/favicon.png",
-      "dest": "/favicon.png"
-    },
-    {
-      "src": "/icons.svg",
-      "dest": "/icons.svg"
-    },
-    {
-      "src": "/flower-for-emotion/(.*)",
-      "dest": "/flower-for-emotion/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "/index.html"
